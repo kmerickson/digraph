@@ -1,0 +1,12 @@
+[2024-11-01 14:46:28] Run started
+[2024-11-01 14:46:28] Graph with 33 vertices created.
+[2024-11-01 14:46:38] BFS between vertex 7 and vertex 32 performed in 37229 ns.
+[2024-11-01 14:46:38] BFS between vertex 19 and vertex 32 performed in 8686 ns.
+[2024-11-01 14:46:38] BFS between vertex 26 and vertex 32 performed in 9889 ns.
+[2024-11-01 14:46:38] BFS between vertex 7 and vertex 22 performed in 61304 ns.
+[2024-11-01 14:46:38] BFS between vertex 19 and vertex 22 performed in 16360 ns.
+[2024-11-01 14:46:38] BFS between vertex 26 and vertex 22 performed in 15489 ns.
+[2024-11-01 14:46:39] BFS between vertex 7 and vertex 3 performed in 32881 ns.
+[2024-11-01 14:46:39] BFS between vertex 19 and vertex 3 performed in 7154 ns.
+[2024-11-01 14:46:39] BFS between vertex 26 and vertex 3 performed in 7103 ns.
+[2024-11-01 14:46:41] Run ended, total run time was 13534431688 ns.
