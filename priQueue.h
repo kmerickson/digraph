@@ -9,10 +9,13 @@ struct Node {
     int priority;   // The priority of the item
 
     // Constructor for convenience
-    Node(T val = T(), int prio = 0) : item(val), priority(prio) {}
+	// not sure if I like pri default = 0, might want to remove default pri
+    Node(T val = T(), int pri = 0) : item(val), priority(pri) {}
 
     bool operator<(const Node& other) const {
     // Comparison operator for min-priority queue
+	// instead of saying heap[item].priority < heap[item2].priority
+	// you can say heap[item] < heap[item2]
         return priority < other.priority;
     }
 };
@@ -21,7 +24,7 @@ template <typename T>
 class PriQ {
 private:
     Node<T>* heap;   
-    int N;           // Number of elements in the heap
+    int N;           // Number of elements in the heap, N-1 accesses last item
     int capacity;    
 
     void heapUp(int index) {
@@ -107,7 +110,7 @@ public:
         return heap[0].item;
     }
 
-    int peekPriority() const {
+    int peekPri() const {
     // Get the priority of the highest priority element
         if (isEmpty()) {
             throw out_of_range("Priority queue is empty.");

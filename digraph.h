@@ -7,7 +7,7 @@
 
 using namespace std;
 
-#define 0x3f3f3f3f
+#define INF 2147483647
 
 struct Edge{
 	int vertex;
@@ -18,12 +18,7 @@ class DiGraph{
 	private:
 		int Gsize;
 		vector<vector<Edge>> adj; //adjacency list 
-		
-	~DiGraph(){
-		cout<<"DiGraph dynamically allocated memory deleted.\n";
-		cout<<"Program terminated.\n";
-	}
-	
+			
 	public:
 		DiGraph(int Gsize): Gsize(Gsize), adj(Gsize){
 		// create empty DiGraph w/ V vertices
@@ -36,7 +31,8 @@ class DiGraph{
 	void addEdge(int vFrom, int vTo, int weight=1){
 	// add edge vFrom-vTo (parallel edges and self-loops allowed)
 	//default weight set to 1 if no weight provided
-	// 
+		//cout<<"edge added: ";
+		//cout<<"vFrom="<<vFrom<<", vTo="<<vTo<<", weight="<<weight<<endl;
 		if(vFrom<0 || vFrom>= Gsize || vTo<0 || vTo>= Gsize){
 			throw out_of_range("Vertex index out of bounds");
 		}	
@@ -99,11 +95,17 @@ class DiGraph{
 		for (int v = destV; v!=-1; v=parent[v])
 			pathStack.push(v);
 
+		cout<<"From "<<srcV<<" to "<<destV<<" is:\n";
 		cout<<"Path weight is "<<dist[destV]<<endl;
 		//display path:
 		while(!pathStack.isEmpty()){
 			cout<<pathStack.pop();
 			if(!pathStack.isEmpty()){cout<<"->";}
 		}
+		cout<<endl<<endl;
+	}
+	~DiGraph(){
+		cout<<"DiGraph dynamically allocated memory deleted.\n";
+		cout<<"Program terminated.\n";
 	}
 };

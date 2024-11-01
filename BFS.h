@@ -8,6 +8,7 @@ size is given with the declaration of the class object as an argument.
 #include <stdio.h>
 #include <string>
 #include <vector>
+#include <cstdlib>
 #include "Q.h"
 #include "graph.h"
 #include "stack.h"
@@ -18,10 +19,11 @@ class BreadthFirstPaths{
 private: 
 	vector<bool> marked;
 	vector<int> edgeTo; //the index is the vertex to and the indexed int is the vertex from
-	vector<int> distTo;
+	vector<int> distTo; //stores the weight of the edge
 	BreadthFirstPaths(int Gsize): marked(Gsize, false), edgeTo(Gsize, -1), distTo(Gsize,-1){}
 public:
-	void bfs(Graph g, int s){//takes in a graph object and a source vertex
+	void bfs(Graph g, int s, bool weighted=false){
+		//takes in a graph object and a source vertex
 		Queue<int> q;
 		q.enQ(s);
 		marked[s] = true;
@@ -40,6 +42,7 @@ public:
 			}
 		}
 	}
+
 
 	int distTo(int v) const {
 		return distTo[v];

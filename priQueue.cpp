@@ -12,14 +12,14 @@ int main() {
 
     // Display the element with the highest priority
     cout << "Element with highest priority: " << pq.peek() 
-         << " (Priority: " << pq.peekPriority() << ")" << endl;
+         << " (Priority: " << pq.peekPri() << ")" << endl;
 
     // Remove and display the element with the highest priority
     cout << "Removed element: " << pq.removeMin() << endl;
 
     // Display the next element with the highest priority
     cout << "Next element with highest priority: " << pq.peek() 
-         << " (Priority: " << pq.peekPriority() << ")" << endl;
+         << " (Priority: " << pq.peekPri() << ")" << endl;
 
     // Check if the priority queue is empty
     cout << "Is the priority queue empty? " 
