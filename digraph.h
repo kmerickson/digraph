@@ -95,7 +95,7 @@ class DiGraph{
 		for (int v = destV; v!=-1; v=parent[v])
 			pathStack.push(v);
 
-		cout<<"From "<<srcV<<" to "<<destV<<" is:\n";
+		//cout<<"From "<<srcV<<" to "<<destV<<" is:\n";
 		cout<<"Path weight is "<<dist[destV]<<endl;
 		//display path:
 		while(!pathStack.isEmpty()){

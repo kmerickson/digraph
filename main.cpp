@@ -39,15 +39,17 @@ int main(int argc, char* argv[]){
 	DiGraph dg(Gsize); // create graph op
 
 	while(!file.eof()){
-		//using getline:
+		//using getline: (Having a hard time getting this to work)
+		// the first character of each line after the first is not being read
 		//getline(file, word, ' ');
 		//vFrom = stoi(word);
 		//getline(file, word, ' ');
 		//vTo = stoi(word);
 		//getline(file, word, ' ');
 		//edgeWeight = stoi(word);
+		//getline(file,line);
 
-		//using sstream:
+		////using sstream:
 		getline(file, line);
 		istringstream iss(line);
 		iss>>vFrom>>vTo>>edgeWeight;
@@ -60,24 +62,67 @@ int main(int argc, char* argv[]){
 	}
 	file.close();
 
-	dg.dijkstraSPT(7, 32);
-	dg.dijkstraSPT(19, 32);
-	dg.dijkstraSPT(26, 32);
+	int input, v1,v2,v3, destV;
+	cout<<"Enter a negative integer to close the program.\n";
+	while(true){ // terminal interface loop
+		cout<<"Provide 3 source vertices: ";
+		
+		cin>>v1;
+		if(v1<0) break;
+		cin>>v2;
+		if(v2<0) break;
+		cin>>v3;
+		if(v3<0) break;
+		
+		cout<<"\nDestination 1?: ";
+		cin>>destV;
+		if(destV<0) break;
+		
+		cout<<"Shortest path 1 from "<<v1<<": ";
+		dg.dijkstraSPT(v1, destV);
+		cout<<"Shortest path 2 from "<<v2<<": ";
+		dg.dijkstraSPT(v2, destV);
+		cout<<"Shortest path 3 from "<<v3<<": ";
+		dg.dijkstraSPT(v3, destV);
+		
+		cout<<"\nDestination 2?: ";
+		cin>>destV;
+		if(destV<0) break;
+		
+		cout<<"Shortest path 1 from "<<v1<<": ";
+		dg.dijkstraSPT(v1, destV);
+		cout<<"Shortest path 2 from "<<v2<<": ";
+		dg.dijkstraSPT(v2, destV);
+		cout<<"Shortest path 3 from "<<v3<<": ";
+		dg.dijkstraSPT(v3, destV);
 
-	dg.dijkstraSPT(7, 22);
-	dg.dijkstraSPT(19, 22);
-	dg.dijkstraSPT(26, 22);
+		cout<<"\nDestination 3?: ";
+		cin>>destV;
+		if(destV<0) break;
+		
+		cout<<"Shortest path 1 from "<<v1<<": ";
+		dg.dijkstraSPT(v1, destV);
+		cout<<"Shortest path 2 from "<<v2<<": ";
+		dg.dijkstraSPT(v2, destV);
+		cout<<"Shortest path 3 from "<<v3<<": ";
+		dg.dijkstraSPT(v3, destV);
+	}
 
-	dg.dijkstraSPT(7, 3);
-	dg.dijkstraSPT(19, 3);
-	dg.dijkstraSPT(26, 3);
-
-	
 
 
-	
-	
-	
+
+	//dg.dijkstraSPT(7, 32);
+	//dg.dijkstraSPT(19, 32);
+	//dg.dijkstraSPT(26, 32);
+
+	//dg.dijkstraSPT(7, 22);
+	//dg.dijkstraSPT(19, 22);
+	//dg.dijkstraSPT(26, 22);
+
+	//dg.dijkstraSPT(7, 3);
+	//dg.dijkstraSPT(19, 3);
+	//dg.dijkstraSPT(26, 3);
+
 	//DiGraph dg2(10);
 	//dg.addEdge(0, 1);
 	//dg.addEdge(0,3);
